@@ -84,9 +84,13 @@ int main() {
                                    strTva.str()};
     int rightColumnSize = 0;
 
-    for (auto &billValue: billValues) {
-        if (billValue.length() > rightColumnSize) {
-            rightColumnSize = billValue.length() + 3; // + 1 separator and 2 whitespaces
+    if (isCanceled) {
+        rightColumnSize = billValues[0].length() + 2; // + 1 separator and 1 whitespace
+    } else {
+        for (auto &billValue: billValues) {
+            if (billValue.length() > rightColumnSize) {
+                rightColumnSize = billValue.length() + 3; // + 1 separator and 2 whitespaces
+            }
         }
     }
 
@@ -94,9 +98,6 @@ int main() {
     const array<string, 10> BILL_LABELS = {"Frais annulation", "distance", "temps ecoule", "Prix de base",
                                            "Prix distance", "Prix temps", "Total", "Course mimimale", "Prix",
                                            "(incl. TVA)"};
-
-    if (isCanceled) rightColumnSize--; // The spacing is different when the run is canceled
-
     int leftColumnSize = 0;
 
     for (auto &billLabel: BILL_LABELS) {
