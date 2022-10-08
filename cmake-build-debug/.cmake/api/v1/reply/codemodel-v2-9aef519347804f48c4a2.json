@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Heig/PRG1/PRG1-labo2/cmake-build-debug",
-		"source" : "C:/Heig/PRG1/PRG1-labo2"
+		"build" : "D:/HEIG-VD/PRG1/PRG1-labo2/cmake-build-debug",
+		"source" : "D:/HEIG-VD/PRG1/PRG1-labo2"
 	},
 	"version" : 
 	{
