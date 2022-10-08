@@ -6,12 +6,18 @@
 using namespace std;
 
 int main() {
-    cout << "Quel uber? Entrez 1 pour X, 2 pour POP ou 3 pour BLACK" << endl
-         << "Combien de minutes ecoulees?" << endl;
-
+    cout << "Quel uber? Entrez 1 pour X, 2 pour POP ou 3 pour BLACK" << endl;
     int uberType;
+    cin >> uberType;
+
+    while (uberType < 1 || uberType > 3) {
+        cout << "Ce type de uber n'existe pas" << endl;
+        cin >> uberType;
+    }
+
+    cout << "Combien de minutes ecoulees?" << endl;
     double minutes, kilometers = 0;
-    cin >> uberType >> minutes;
+    cin >> minutes;
 
     bool isCanceled = true;
 
@@ -20,6 +26,11 @@ int main() {
 
         cout << "Combien de kilometres parcourus?" << endl;
         cin >> kilometers;
+
+        while (kilometers < 0.) {
+            cout << "Impossible de faire des kilometres negatifs" << endl;
+            cin >> uberType;
+        }
     }
 
     cout << endl; // Blank spaces before the bill
