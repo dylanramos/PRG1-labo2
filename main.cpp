@@ -86,7 +86,7 @@ int main() {
 
     for (auto &billValue: billValues) {
         if (billValue.length() > rightColumnSize) {
-            rightColumnSize = billValue.length() + 3;
+            rightColumnSize = billValue.length() + 3; // + 1 separator and 2 whitespaces
         }
     }
 
@@ -101,7 +101,7 @@ int main() {
 
     for (auto &billLabel: BILL_LABELS) {
         if (billLabel.length() > leftColumnSize) {
-            leftColumnSize = billLabel.length() + 1;
+            leftColumnSize = billLabel.length() + 1; // + 1 whitespace
         }
     }
 
@@ -110,7 +110,7 @@ int main() {
 
     string uberName = UBER_NAMES[uberType];
 
-    int billWidth = leftColumnSize + rightColumnSize + 3; // 1 for the separator character and 1 for the right border
+    int billWidth = leftColumnSize + rightColumnSize + 3; // 1 for the separator and 2 for the whitespaces
     int widthForCenter = (billWidth / 2 + uberName.length() / 2) + 1; // To center the title, + 1 is for the left border
 
     // Store redundant strings in variables
@@ -129,42 +129,35 @@ int main() {
     cout << sectionSeparator.str();
 
     if (isCanceled) {
-        cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[0]
-             << BILL_SEPARATOR_CHAR
+        cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[0] << BILL_SEPARATOR_CHAR
              << setw(rightColumnSize) << right << billValues[0] << BILL_VERTICAL_CHAR << endl;
         cout << sectionSeparator.str();
     } else {
         // Distance
-        cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[1]
-             << BILL_SEPARATOR_CHAR
+        cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[1] << BILL_SEPARATOR_CHAR
              << setw(rightColumnSize) << right << billValues[1] << BILL_VERTICAL_CHAR << endl;
         // Elapsed time
-        cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[2]
-             << BILL_SEPARATOR_CHAR
+        cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[2] << BILL_SEPARATOR_CHAR
              << setw(rightColumnSize) << right << billValues[2] << BILL_VERTICAL_CHAR << endl;
         cout << sectionSeparator.str();
         // Base price
-        cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[3]
-             << BILL_SEPARATOR_CHAR
+        cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[3] << BILL_SEPARATOR_CHAR
              << setw(rightColumnSize) << right << billValues[3] << BILL_VERTICAL_CHAR << endl;
         // Distance price
-        cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[4]
-             << BILL_SEPARATOR_CHAR
+        cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[4] << BILL_SEPARATOR_CHAR
              << setw(rightColumnSize) << right << billValues[4] << BILL_VERTICAL_CHAR << endl;
         // Time price
-        cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[5]
-             << BILL_SEPARATOR_CHAR
+        cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[5] << BILL_SEPARATOR_CHAR
              << setw(rightColumnSize) << right << billValues[5] << BILL_VERTICAL_CHAR << endl;
         // Total
-        cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[6]
-             << BILL_SEPARATOR_CHAR
+        cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[6] << BILL_SEPARATOR_CHAR
              << setw(rightColumnSize) << right << billValues[6] << BILL_VERTICAL_CHAR << endl;
         cout << sectionSeparator.str();
         // Minimum price
         if (total < minimumPrice) {
             cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[7]
-                  << BILL_SEPARATOR_CHAR << setw(rightColumnSize) << right << billValues[7]
-                 << BILL_VERTICAL_CHAR << endl;
+                 << BILL_SEPARATOR_CHAR << setw(rightColumnSize) << right << billValues[7] << BILL_VERTICAL_CHAR
+                 << endl;
             cout << sectionSeparator.str();
         }
     }
