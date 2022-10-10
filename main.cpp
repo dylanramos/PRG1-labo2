@@ -136,31 +136,19 @@ int main() {
              << setw(rightColumnSize) << right << billValues[0] << BILL_VERTICAL_CHAR << endl;
         cout << sectionSeparator.str();
     } else {
-        // Distance
-        cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[1] << BILL_SEPARATOR_CHAR
-             << setw(rightColumnSize) << right << billValues[1] << BILL_VERTICAL_CHAR << endl;
-        // Elapsed time
-        cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[2] << BILL_SEPARATOR_CHAR
-             << setw(rightColumnSize) << right << billValues[2] << BILL_VERTICAL_CHAR << endl;
-        cout << sectionSeparator.str();
-        // Base price
-        cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[3] << BILL_SEPARATOR_CHAR
-             << setw(rightColumnSize) << right << billValues[3] << BILL_VERTICAL_CHAR << endl;
-        // Distance price
-        cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[4] << BILL_SEPARATOR_CHAR
-             << setw(rightColumnSize) << right << billValues[4] << BILL_VERTICAL_CHAR << endl;
-        // Time price
-        cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[5] << BILL_SEPARATOR_CHAR
-             << setw(rightColumnSize) << right << billValues[5] << BILL_VERTICAL_CHAR << endl;
-        // Total
-        cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[6] << BILL_SEPARATOR_CHAR
-             << setw(rightColumnSize) << right << billValues[6] << BILL_VERTICAL_CHAR << endl;
-        cout << sectionSeparator.str();
+        // Distance - Elapsed time - Base price - Distance price - Time price - Total
+        for (int i = 1; i <=6 ; ++i) {
+            cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[i] << BILL_SEPARATOR_CHAR
+                 << setw(rightColumnSize) << right << billValues[i] << BILL_VERTICAL_CHAR << endl;
+
+            if (i == 2 || i == 6) cout << sectionSeparator.str();
+        }
+
         // Minimum price
         if (total < minimumPrice) {
             cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[7]
-                 << BILL_SEPARATOR_CHAR << setw(rightColumnSize) << right << billValues[7] << BILL_VERTICAL_CHAR
-                 << endl;
+                 << BILL_SEPARATOR_CHAR << setw(rightColumnSize) << right << billValues[7]
+                 << BILL_VERTICAL_CHAR << endl;
             cout << sectionSeparator.str();
         }
     }
