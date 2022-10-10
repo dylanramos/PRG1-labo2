@@ -137,9 +137,10 @@ int main() {
         cout << sectionSeparator.str();
     } else {
         // Distance - Elapsed time - Base price - Distance price - Time price - Total
-        for (int i = 1; i <=6 ; ++i) {
-            cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[i] << BILL_SEPARATOR_CHAR
-                 << setw(rightColumnSize) << right << billValues[i] << BILL_VERTICAL_CHAR << endl;
+        for (int i = 1; i <= 6; ++i) {
+            cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[i]
+                 << BILL_SEPARATOR_CHAR << setw(rightColumnSize) << right << billValues[i] << BILL_VERTICAL_CHAR
+                 << endl;
 
             if (i == 2 || i == 6) cout << sectionSeparator.str();
         }
@@ -147,8 +148,8 @@ int main() {
         // Minimum price
         if (total < minimumPrice) {
             cout << BILL_VERTICAL_CHAR << " " << setw(leftColumnSize) << left << BILL_LABELS[7]
-                 << BILL_SEPARATOR_CHAR << setw(rightColumnSize) << right << billValues[7]
-                 << BILL_VERTICAL_CHAR << endl;
+                 << BILL_SEPARATOR_CHAR << setw(rightColumnSize) << right << billValues[7] << BILL_VERTICAL_CHAR
+                 << endl;
             cout << sectionSeparator.str();
         }
     }
