@@ -84,15 +84,13 @@ int main() {
                                    strTva.str()};
     int rightColumnSize = 0;
 
-    if (isCanceled) {
-        rightColumnSize = billValues[0].length() + 2; // + 1 separator and 1 whitespace
-    } else {
-        for (auto &billValue: billValues) {
-            if (billValue.length() > rightColumnSize) {
-                rightColumnSize = billValue.length() + 3; // + 1 separator and 2 whitespaces
-            }
+    for (auto &billValue: billValues) {
+        if (billValue.length() > rightColumnSize) {
+            rightColumnSize = billValue.length();
         }
     }
+
+    rightColumnSize++; // + 1 whitespace
 
     // Find the longest string to size the left column of the bill
     const array<string, 10> BILL_LABELS = {"Frais annulation", "distance", "temps ecoule", "Prix de base",
@@ -102,9 +100,11 @@ int main() {
 
     for (auto &billLabel: BILL_LABELS) {
         if (billLabel.length() > leftColumnSize) {
-            leftColumnSize = billLabel.length() + 1; // + 1 whitespace
+            leftColumnSize = billLabel.length();
         }
     }
+
+    leftColumnSize++; // + 1 whitespace
 
     const char BILL_CORNER_CHAR = '+', BILL_HORIZONTAL_CHAR = '-', BILL_VERTICAL_CHAR = '|', BILL_SEPARATOR_CHAR = ':';
     const array<string, 3> UBER_NAMES = {"uberX", "uberPOP", "uberBLACK"};
