@@ -70,7 +70,7 @@ int main() {
 
     strCancelPrice << fixed << setprecision(2) << " " << cancelPrice << " ";
     strDistance << fixed << setprecision(1) << " " << kilometers << " km ";
-    strElapsedTime << fixed << setprecision(0) << minutes << " min ";
+    strElapsedTime << fixed << setprecision(0) << " " << minutes << " min ";
     strBasePrice << fixed << setprecision(2) << " " << basePrice << " ";
     strDistancePrice << fixed << setprecision(2) << " " << distancePrice << " ";
     strTimePrice << fixed << setprecision(2) << " " << timePrice << " ";
