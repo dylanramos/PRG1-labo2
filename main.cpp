@@ -64,13 +64,15 @@ int main() {
 
     tvaPrice = (price / (100 + TVA)) * TVA;
 
+    const array<string, 2> UNITS = {"km", "min"}; // Units at the end of values
+
     // Prepare the strings containing the different values
     ostringstream strCancelPrice, strDistance, strElapsedTime, strBasePrice, strDistancePrice, strTimePrice, strTotal,
             strPrice, strTva;
 
     strCancelPrice << fixed << setprecision(2) << " " << cancelPrice << " ";
-    strDistance << fixed << setprecision(1) << " " << kilometers << " km ";
-    strElapsedTime << fixed << setprecision(0) << " " << minutes << " min ";
+    strDistance << fixed << setprecision(1) << " " << kilometers << " " << UNITS[0] << " ";
+    strElapsedTime << fixed << setprecision(0) << " " << minutes << " " << UNITS[1] << " ";
     strBasePrice << fixed << setprecision(2) << " " << basePrice << " ";
     strDistancePrice << fixed << setprecision(2) << " " << distancePrice << " ";
     strTimePrice << fixed << setprecision(2) << " " << timePrice << " ";
