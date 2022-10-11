@@ -33,13 +33,13 @@ int main() {
         }
     }
 
-    cout << endl; // Blank spaces before the bill
+    cout << endl; // Blank space before the bill
 
     const double UBER_VALUES[3][5] = {{3.0, 1.8,  0.3, 6.0,  6.0},
                                       {3.0, 1.35, 0.3, 6.0,  6.0},
                                       {8.0, 3.6,  0.6, 15.0, 10.0}};
 
-    uberType--; // To match with the array of uber values
+    --uberType; // To match with the array of uber values
 
     double basePrice = UBER_VALUES[uberType][0], kilometerPrice = UBER_VALUES[uberType][1],
             minutePrice = UBER_VALUES[uberType][2], minimumPrice = UBER_VALUES[uberType][3],
@@ -92,7 +92,7 @@ int main() {
         }
     }
 
-    rightColumnSize++; // + 1 whitespace
+    ++rightColumnSize; // + 1 whitespace
 
     // Find the longest string to size the left column of the bill
     const array<string, 10> BILL_LABELS = {"Frais annulation", "distance", "temps ecoule", "Prix de base",
@@ -106,7 +106,7 @@ int main() {
         }
     }
 
-    leftColumnSize++; // + 1 whitespace
+    ++leftColumnSize; // + 1 whitespace
 
     const char BILL_CORNER_CHAR = '+', BILL_HORIZONTAL_CHAR = '-', BILL_VERTICAL_CHAR = '|', BILL_SEPARATOR_CHAR = ':';
     const array<string, 3> UBER_NAMES = {"uberX", "uberPOP", "uberBLACK"};
